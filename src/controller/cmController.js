@@ -49,7 +49,7 @@ const getCMBystate = (req, res, next) => {
 
 // 3) Adding New State Details
 const addNewStateAndCM = (req, res, next) => {
-  const result = valid.fun1(req.body);
+  const result = valid.stateValue(req.body);
   if (result.error) {
     next(result.error.details[0]);
     return;
@@ -69,7 +69,7 @@ const addNewStateAndCM = (req, res, next) => {
 //  4) Updating Chief Minister Of a State
 
 const updateCM = (req, res, next) => {
-  const result = valid.fun2(req.body);
+  const result = valid.cmDetailsValid(req.body);
   if (result.error) {
     next(result.error.details[0]);
     return;
@@ -88,7 +88,7 @@ const updateCM = (req, res, next) => {
 //  5) Delete State Details
 
 const deleteState = (req, res, next) => {
-  const result = valid.fun3(req.params);
+  const result = valid.deletingDataValid(req.params);
   if (result.error) {
     next(result.error.details[0]);
     return;
